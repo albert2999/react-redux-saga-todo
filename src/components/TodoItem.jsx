@@ -22,7 +22,6 @@ const TodoItem = (props) => {
     setIsModal(val);
 
   }
-  console.log("isModal",isModal)
 
 
   return (

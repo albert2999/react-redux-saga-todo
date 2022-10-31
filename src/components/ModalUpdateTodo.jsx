@@ -9,15 +9,17 @@ const ModalUpdateTodo = (props) => {
   const [title, setTitle] = useState(props.item?.title);
   const [desc, setDesc] = useState(props.item?.desc);
 
-  const handleUpdateTodo = () => {
+  const handleUpdateTodo = (id) => {
     dispatch(
       updateTodo({
+        id , 
         title: title,
         desc: desc,
         category: recentCategory,
-        is_complete: false,
+        is_complete: props.item.is_complete,
       })
     );
+    props.setIsModal(false);
   };
 
   return (
@@ -97,7 +99,7 @@ const ModalUpdateTodo = (props) => {
             <button
               type="button"
               className="btn btn-success color-theme d-flex px-4 h-auto"
-              onClick={() => handleUpdateTodo()}
+              onClick={() => handleUpdateTodo(props.item.id)}
             >
               Update
             </button>
